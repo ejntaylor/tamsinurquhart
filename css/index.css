@@ -446,16 +446,23 @@ section:nth-child(even) {
 }
 
 .benefit-icon {
-  font-size: 3.5rem;
   margin-bottom: var(--space-lg);
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  color: var(--color-primary);
   transition: all 0.3s ease;
 }
 
-.benefit-item:hover .benefit-icon {
+.benefit-icon svg {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 4px rgba(193, 122, 95, 0.2));
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon svg {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 8px rgba(193, 122, 95, 0.3));
+  filter: drop-shadow(0 4px 8px rgba(193, 122, 95, 0.4));
+  stroke-width: 2.5;
 }
 
 .benefit-item h3 {
