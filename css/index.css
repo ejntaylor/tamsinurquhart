@@ -266,7 +266,7 @@ section:nth-child(even) {
 }
 
 .logo-img {
-  height: 50px;
+  height: 150px;
   width: auto;
   display: block;
 }
@@ -374,42 +374,99 @@ section:nth-child(even) {
 }
 
 /* ============================================
-   BENEFITS GRID
+   BENEFITS GRID - TAROT CARD DESIGN
    ============================================ */
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-xl);
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-2xl);
+  max-width: 1100px;
   margin: 0 auto;
+  padding: var(--space-xl) 0;
 }
 
 .benefit-item {
+  position: relative;
   text-align: center;
-  padding: var(--space-xl);
-  background: var(--color-bg-light);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-base);
-  border: 1px solid var(--color-border);
+  padding: var(--space-2xl) var(--space-xl);
+  background: linear-gradient(135deg, #FAF7F2 0%, #F5EFE7 100%);
+  border-radius: var(--radius-md);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  aspect-ratio: 2/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Mystical border effect */
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Decorative corners */
+.benefit-item::after {
+  content: '✦';
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-primary);
+  font-size: 12px;
+  opacity: 0.4;
 }
 
 .benefit-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 12px 24px rgba(193, 122, 95, 0.15),
+    0 0 0 1px var(--color-primary-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-color: var(--color-primary-light);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
+}
+
+.benefit-item:hover::before {
+  opacity: 0.6;
+  border-color: var(--color-primary);
 }
 
 .benefit-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
+  font-size: 3.5rem;
+  margin-bottom: var(--space-lg);
   display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(193, 122, 95, 0.3));
 }
 
 .benefit-item h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--color-primary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: var(--font-size-lg);
 }
 
 .benefit-item p {
@@ -417,6 +474,30 @@ section:nth-child(even) {
   color: var(--color-text-secondary);
   margin-bottom: 0;
   line-height: 1.6;
+  max-width: 180px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .benefit-item {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
 }
 
 /* ============================================
