@@ -645,7 +645,7 @@ section:nth-child(even) {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ============================================
@@ -1072,6 +1072,12 @@ section:nth-child(even) {
   }
 }
 
+@media (min-width: 769px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --font-size-4xl: 2rem;
@@ -1117,8 +1123,7 @@ section:nth-child(even) {
     text-align: center;
   }
 
-  .grid-2,
-  .grid-3 {
+  .grid-2 {
     grid-template-columns: 1fr;
   }
 }
@@ -1136,6 +1141,10 @@ section:nth-child(even) {
 
   .card {
     padding: var(--space-lg);
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
   }
 }
 
