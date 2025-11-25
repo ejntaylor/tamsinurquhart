@@ -26,9 +26,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="podcasts.html" class="nav-link">Podcasts</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="blog.html" class="nav-link">Resources</a></li>
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -63,33 +62,30 @@
     </section>
 
     <!-- Contact Form -->
-    <section style="background-color: var(--color-bg-warm);">
+    <section>
         <div class="container-narrow">
-            <div class="card">
-                <h3 class="text-center mb-xl">Send me a message</h3>
-                <form id="contactForm">
+            <div class="mystical-heading">
+                <h3 class="text-primary">Send a Message</h3>
+            </div>
+            <div class="form-container" style="padding: var(--space-xl); border-radius: var(--radius-lg);">
+                <form class="contact-form" id="contactForm" onsubmit="return validateForm(event)">
                     <div class="form-group">
                         <label for="name" class="form-label required">Name</label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                        <input type="text" id="name" name="name" class="form-input" required>
                         <div class="form-error" id="nameError"></div>
                     </div>
-
                     <div class="form-group">
                         <label for="email" class="form-label required">Email</label>
-                        <input type="email" id="email" name="email" class="form-input"
-                            placeholder="your.email@example.com" required>
+                        <input type="email" id="email" name="email" class="form-input" required>
                         <div class="form-error" id="emailError"></div>
                     </div>
-
                     <div class="form-group">
                         <label for="phone" class="form-label">Phone (optional)</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number">
+                        <input type="tel" id="phone" name="phone" class="form-input">
                     </div>
-
                     <div class="form-group">
-                        <label for="message" class="form-label required">How can I help?</label>
-                        <textarea id="message" name="message" class="form-textarea"
-                            placeholder="Tell me a bit about what brings you to therapy..." required></textarea>
+                        <label for="message" class="form-label required">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
                         <div class="form-error" id="messageError"></div>
                     </div>
 
@@ -114,12 +110,17 @@
                         <div class="form-error" id="privacyError"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <!-- Honeypot field -->
+                    <div style="display:none;">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Send Message</button>
 
                     <div id="formSuccess" class="mt-lg"
                         style="display: none; padding: var(--space-lg); background-color: #C6F6D5; color: #22543D; border-radius: var(--radius-md); text-align: center;">
-                        Thank you for reaching out! I'll respond to your message within 1-2 business days. Please check
-                        your spam folder if you don't see a reply.
+                        Thank you for reaching out! I'll respond to your message within 1-2 business days.
                     </div>
 
                     <div id="formError" class="mt-lg"
@@ -171,9 +172,8 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="resources.html" class="nav-link">Resources</a></li>
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="blog.html">Resources</a></li>
+                        <li><a href="podcasts.html">Podcasts</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>

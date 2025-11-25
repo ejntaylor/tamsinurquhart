@@ -805,6 +805,111 @@ section:nth-child(even) {
   overflow: hidden;
 }
 
+/* ============================================
+   MYSTICAL DESIGN SYSTEM
+   ============================================ */
+
+/* Mystical Card (General) */
+.mystical-card {
+  position: relative;
+  background: linear-gradient(135deg, #FAF7F2 0%, #F5EFE7 100%);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  border: 1px solid rgba(193, 122, 95, 0.2);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.mystical-card::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  opacity: 0.15;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mystical-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 24px rgba(193, 122, 95, 0.1),
+    0 0 0 1px var(--color-primary-light);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
+}
+
+.mystical-card:hover::before {
+  opacity: 0.4;
+}
+
+/* Mystical Divider */
+.mystical-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-2xl) 0;
+  color: var(--color-primary-light);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.mystical-divider::before,
+.mystical-divider::after {
+  content: '';
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  margin: 0 var(--space-md);
+}
+
+/* Mystical Section Heading */
+.mystical-heading {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mystical-heading::after {
+  content: '✦';
+  display: block;
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-top: var(--space-xs);
+  opacity: 0.5;
+}
+
+/* Form Container Styling */
+.form-container {
+  background: linear-gradient(135deg, #fff 0%, #FAF7F2 100%);
+  border: 1px solid rgba(193, 122, 95, 0.2);
+  position: relative;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
 .accordion-header {
   width: 100%;
   padding: var(--space-lg);
