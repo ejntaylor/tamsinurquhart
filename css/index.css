@@ -342,7 +342,7 @@ section:nth-child(even) {
   font-family: var(--font-heading);
   font-size: var(--font-size-2xl);
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: var(--space-2xl);
   color: var(--color-bg-cream);
 }
@@ -399,7 +399,7 @@ section:nth-child(even) {
   aspect-ratio: 2/3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
 }
@@ -474,6 +474,10 @@ section:nth-child(even) {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-size: var(--font-size-lg);
+  min-height: 3.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .benefit-item p {
