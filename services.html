@@ -40,10 +40,11 @@
     </header>
 
     <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
+    <section class="hero"
+        style="min-height: 15vh; background-image: linear-gradient(rgba(58, 54, 51, 0.6), rgba(58, 54, 51, 0.6)), url('images/hero-forest.png');">
+        <div class="hero-content">
             <h1>Services</h1>
-            <p class="page-subtitle">Collaborative, person[s]-centred therapy to support your system to heal, change and
+            <p class="hero-subtitle">Collaborative, person[s]-centred therapy to support your system to heal, change and
                 grow</p>
         </div>
     </section>
@@ -71,35 +72,104 @@
         </div>
     </section>
 
+
     <!-- What I Work With -->
     <section style="background-color: var(--color-bg-warm);">
         <div class="container">
-            <div class="mystical-heading">
-                <h3 class="text-primary">Get support with</h3>
+            <div class="section-header">
+                <h2 class="section-title">Get support with</h2>
             </div>
-            <div class="grid grid-2">
-                <div class="mystical-card">
-                    <h4>Trauma & PTSD</h4>
+            <div class="benefits-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Healing: Lotus -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M50 80 C50 80 20 60 20 40 C20 25 35 20 50 40 C65 20 80 25 80 40 C80 60 50 80 50 80 Z" />
+                            <path d="M50 80 C50 80 35 65 35 50" opacity="0.5" />
+                            <path d="M50 80 C50 80 65 65 65 50" opacity="0.5" />
+                            <path d="M50 40 L50 20" />
+                            <circle cx="50" cy="15" r="3" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Trauma & PTSD</h3>
                     <p>Processing past experiences and healing emotional wounds</p>
                 </div>
-                <div class="mystical-card">
-                    <h4>Anxiety & Depression</h4>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Compassion: Heart -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 60 Q30 80 50 90 Q70 80 80 60" />
+                            <path
+                                d="M50 45 C40 35 30 35 30 45 C30 55 50 65 50 65 C50 65 70 55 70 45 C70 35 60 35 50 45 Z"
+                                fill="currentColor" fill-opacity="0.1" />
+                            <path d="M50 20 L50 30" opacity="0.5" />
+                            <path d="M50 10 L50 15" opacity="0.3" />
+                        </svg>
+                    </div>
+                    <h3>Anxiety & Depression</h3>
                     <p>Understanding and working with difficult feelings</p>
                 </div>
-                <div class="mystical-card">
-                    <h4>Relationship Issues</h4>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Connection: Interlocking Circles -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="35" cy="50" r="25" />
+                            <circle cx="65" cy="50" r="25" />
+                            <path d="M50 20 L50 80" opacity="0.3" />
+                        </svg>
+                    </div>
+                    <h3>Relationship Issues</h3>
                     <p>Improving connections with self and others</p>
                 </div>
-                <div class="mystical-card">
-                    <h4>Grief & Loss</h4>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Grief: Willow/Flowing -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50 10 L50 30" stroke-width="3" />
+                            <path d="M50 30 Q30 40 30 60" opacity="0.6" />
+                            <path d="M50 30 Q50 40 50 60" opacity="0.6" />
+                            <path d="M50 30 Q70 40 70 60" opacity="0.6" />
+                            <circle cx="30" cy="65" r="2" fill="currentColor" opacity="0.4" />
+                            <circle cx="50" cy="65" r="2" fill="currentColor" opacity="0.4" />
+                            <circle cx="70" cy="65" r="2" fill="currentColor" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <h3>Grief & Loss</h3>
                     <p>Processing present feelings and navigating change</p>
                 </div>
-                <div class="mystical-card">
-                    <h4>Self-Discovery</h4>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Clarity: Sun -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="50" cy="50" r="20" />
+                            <path d="M50 10 L50 20 M50 80 L50 90 M10 50 L20 50 M80 50 L90 50" />
+                            <path d="M22 22 L29 29 M71 71 L78 78 M22 78 L29 71 M71 29 L78 22" />
+                            <circle cx="50" cy="50" r="35" stroke-dasharray="4 4" opacity="0.5" />
+                        </svg>
+                    </div>
+                    <h3>Self-Discovery</h3>
                     <p>Getting clear about who you are and what you want</p>
                 </div>
-                <div class="mystical-card">
-                    <h4>Life Transitions</h4>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <!-- Change: Butterfly/Transformation -->
+                        <svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50 50 m-25 0 a 25 25 0 1 0 50 0 a 25 25 0 1 0 -50 0" opacity="0.3" />
+                            <path
+                                d="M50 25 C30 25 20 40 20 55 C20 75 35 85 50 85 C65 85 80 75 80 55 C80 40 70 25 50 25 Z" />
+                            <path d="M50 25 L50 85" />
+                            <path d="M25 45 Q50 65 75 45" />
+                            <path d="M30 65 Q50 75 70 65" />
+                        </svg>
+                    </div>
+                    <h3>Life Transitions</h3>
                     <p>Navigating big changes with support and clarity</p>
                 </div>
             </div>
@@ -117,7 +187,7 @@
                 <h3 class="text-primary">Sessions & Fees</h3>
             </div>
 
-            <div class="grid grid-3 mb-xl">
+            <div class="grid grid-2 mb-xl">
                 <div class="card text-center">
                     <h4 style="color: var(--color-primary); font-size: var(--font-size-2xl);">£65</h4>
                     <p class="mb-0">1 hour</p>
