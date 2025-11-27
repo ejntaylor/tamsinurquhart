@@ -519,9 +519,13 @@ section:nth-child(even) {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   flex-wrap: wrap;
   padding: var(--space-xl) 0;
+}
+
+.professional-logos .logo-link {
+  flex: 0 1 auto;
 }
 
 .logo-link {
@@ -534,9 +538,9 @@ section:nth-child(even) {
 }
 
 .professional-logo {
-  height: 80px;
+  height: 180px;
   width: auto;
-  max-width: 200px;
+  max-width: 350px;
   object-fit: contain;
 }
 
