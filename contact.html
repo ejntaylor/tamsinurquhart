@@ -69,7 +69,7 @@
                 <h3 class="text-primary">Send a Message</h3>
             </div>
             <div class="form-container" style="padding: var(--space-xl); border-radius: var(--radius-lg);">
-                <form class="contact-form" id="contactForm" onsubmit="return validateForm(event)">
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <div class="form-group">
                         <label for="name" class="form-label required">Name</label>
                         <input type="text" id="name" name="name" class="form-input" required>
@@ -111,11 +111,10 @@
                         <div class="form-error" id="privacyError"></div>
                     </div>
 
-                    <!-- Honeypot field -->
-                    <div style="display:none;">
-                        <label for="website">Website</label>
-                        <input type="text" id="website" name="website">
-                    </div>
+                    <!-- Honeypot field for spam protection -->
+                    <p class="hidden" style="display:none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
 
                     <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Send Message</button>
 

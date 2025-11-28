@@ -10,41 +10,67 @@ https://dynamic-twilight-d845a6.netlify.app
 
 ## Deployment
 
-This site is hosted on Netlify.
-
-To deploy changes:
 ```bash
 netlify deploy --prod --dir .
 ```
 
-Or commit and push to GitHub, then deploy from Netlify.
+## Staging vs Production
 
-## Current Protections
+### Enable Staging Mode (password + noindex)
 
-- **Password protection:** Client-side JavaScript password prompt (password: `tamsin`)
-- **SEO blocked:** All pages have `<meta name="robots" content="noindex, nofollow">` tags
+Run this to add protection before sharing for review:
 
-## Going Live
+```bash
+# Add noindex to all HTML files
+find . -name "*.html" -exec sed -i '' 's/<meta name="robots" content="index, follow">/<meta name="robots" content="noindex, nofollow">/g' {} \;
 
-When ready to launch on the custom domain:
+# Uncomment password script in all HTML files
+find . -name "*.html" -exec sed -i '' 's/<!-- <script src="js\/password-protect.js"><\/script> -->/<script src="js\/password-protect.js"><\/script>/g' {} \;
+find . -name "*.html" -exec sed -i '' 's/<!-- <script src="..\/js\/password-protect.js"><\/script> -->/<script src="..\/js\/password-protect.js"><\/script>/g' {} \;
+```
 
-1. Remove password protection:
-   - Delete `js/password-protect.js`
-   - Remove `<script src="js/password-protect.js"></script>` from all HTML files
+### Enable Production Mode (no password, SEO enabled)
 
-2. Remove noindex tags:
-   - Remove `<meta name="robots" content="noindex, nofollow">` from all HTML files
+Run this when ready to go live:
 
-3. Add custom domain in Netlify:
-   - Go to **Site settings** → **Domain management** → **Add custom domain**
-   - Add DNS records with your registrar:
-     - For apex domain: Add A record pointing to `75.2.60.5`
-     - For www: Add CNAME record pointing to `dynamic-twilight-d845a6.netlify.app`
-   - Netlify will auto-provision SSL certificate
+```bash
+# Enable SEO indexing
+find . -name "*.html" -exec sed -i '' 's/<meta name="robots" content="noindex, nofollow">/<meta name="robots" content="index, follow">/g' {} \;
+
+# Comment out password script
+find . -name "*.html" -exec sed -i '' 's/<script src="js\/password-protect.js"><\/script>/<!-- <script src="js\/password-protect.js"><\/script> -->/g' {} \;
+find . -name "*.html" -exec sed -i '' 's/<script src="..\/js\/password-protect.js"><\/script>/<!-- <script src="..\/js\/password-protect.js"><\/script> -->/g' {} \;
+```
+
+Then deploy:
+```bash
+netlify deploy --prod --dir .
+```
+
+## Current Status
+
+- [x] Password protection enabled
+- [x] SEO blocked (noindex)
+- [x] Netlify forms configured
+- [ ] Custom domain configured
+
+## Custom Domain Setup
+
+When ready to add custom domain:
+
+1. Go to Netlify dashboard → **Site settings** → **Domain management**
+2. Click **Add custom domain** and enter your domain
+3. Add DNS records at your registrar:
+   - **Apex domain** (tamsinurquhart.com): A record → `75.2.60.5`
+   - **www subdomain**: CNAME → `dynamic-twilight-d845a6.netlify.app`
+4. Wait for DNS propagation and SSL provisioning
+
+## Forms
+
+Contact form submissions go to: Netlify dashboard → **Forms**
 
 ## Local Development
 
-Simply open any HTML file in a browser, or use a local server:
 ```bash
 npx serve .
 ```
