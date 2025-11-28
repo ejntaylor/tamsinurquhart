@@ -157,46 +157,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalButtonText = submitButton.textContent;
                 submitButton.textContent = 'Sending...';
                 submitButton.disabled = true;
-                
-                // Simulate form submission (replace with actual backend submission)
-                setTimeout(() => {
-                    // Show success message
-                    document.getElementById('formSuccess').style.display = 'block';
-                    document.getElementById('formError').style.display = 'none';
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Reset button
+
+                // Submit to Netlify
+                const formData = new FormData(contactForm);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('formSuccess').style.display = 'block';
+                        document.getElementById('formError').style.display = 'none';
+                        contactForm.reset();
+                        document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('formError').style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
+                    console.error('Form error:', error);
+                })
+                .finally(() => {
                     submitButton.textContent = originalButtonText;
                     submitButton.disabled = false;
-                    
-                    // Scroll to success message
-                    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 1500);
-                
-                // In production, replace the above with actual form submission:
-                // const formData = new FormData(contactForm);
-                // fetch('/submit-form', {
-                //     method: 'POST',
-                //     body: formData
-                // })
-                // .then(response => response.json())
-                // .then(data => {
-                //     if (data.success) {
-                //         document.getElementById('formSuccess').style.display = 'block';
-                //         contactForm.reset();
-                //     } else {
-                //         document.getElementById('formError').style.display = 'block';
-                //     }
-                // })
-                // .catch(error => {
-                //     document.getElementById('formError').style.display = 'block';
-                // })
-                // .finally(() => {
-                //     submitButton.textContent = originalButtonText;
-                //     submitButton.disabled = false;
-                // });
+                });
             }
         });
     }
